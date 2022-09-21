@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let newArr =[]
+                sum =0
+                for (num in arr) {
+                    if (arr[num] % 2 === 1) {
+                        sum += arr[num]
+                        newArr.push(arr[num])
+                    }
+                }
+                let min = newArr[0]
+                for (num in newArr) {
+                    if (newArr[num] < min) {
+                        min = newArr[num]
+                    }
+                }
+                return [sum, min]
+
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+            console.log(Math.min(...arr))
+            console.log(Math.max(...arr))
+            console.log(Math.min.apply(null, arr))
+        </script>
+    </body>
+</html>

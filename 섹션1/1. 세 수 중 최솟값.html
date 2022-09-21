@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let min = 100
+                const arr = [a,b,c]
+                for (index in arr) {
+                    if (arr[index] < min)
+                        min = arr[index]
+                }
+                return min
+            }
+
+            console.log(solution(6, 5, 11));
+        </script>
+    </body>
+</html>

@@ -5,19 +5,21 @@
     </head>
     <body>
         <script>
-            function solution(s, t){
-                let answer=0;
+            function solution(s){
+                let answer="";
                 for(let x of s){
-                    if(x===t) answer++;
+                    if(x=='A') answer+='#';
+                    else answer+=x;
                 }
                 return answer;
             }
             
-            let str="COMPUTERPROGRAMMING";
-            console.log(solution(str, 'R'));
+            let str="BANANA";
+            console.log(solution(str));
         </script>
     </body>
 </html>
+
 
 
 <html>
@@ -27,13 +29,14 @@
     </head>
     <body>
         <script>
-            function solution(s, t){
-                let answer=s.split(t).length;
-                return answer-1;
+            function solution(s){
+                let answer=s;
+                answer=answer.replace(/A/g, "#");
+                return answer;
             }
             
-            let str="COMPUTERPROGRAMMING";
-            console.log(solution(str, 'R'));
+            let st="BANANA";
+            console.log(solution(st));
         </script>
     </body>
 </html>

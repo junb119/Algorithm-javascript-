@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                // 삼각형 조건
+                // 제일 긴 면이 다른 두 면의 합보다 길면 성립
+                let answer
+                let arr = [a,b,c].sort()
+                if (arr[0]+arr[1] < arr[2]) answer = 'NO'
+                else answer = 'YES'
+                return answer
+            }
+            console.log(solution(6, 7, 11));
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>
