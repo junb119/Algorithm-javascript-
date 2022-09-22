@@ -6,24 +6,38 @@
     <body>
         <script>
             function solution(arr){  
-                let answer=Number.MIN_SAFE_INTEGER;
-                let n=arr.length;
-                let sum1=sum2=0;
-                for(let i=0; i<n; i++){
-                    sum1=sum2=0;
-                    for(let j=0; j<n; j++){
-                        sum1+=arr[i][j];
-                        sum2+=arr[j][i];
-                    }
-                    answer=Math.max(answer, sum1, sum2);
+                let n=arr.length
+                let max = Number.MIN_SAFE_INTEGER
+                let hor=0
+                let ver_Arr=[]
+                let ver = 0
+                let dia = []
+                
+                function sum (arr) {
+                    return arr.reduce((v,i) => v+i)
                 }
-                sum1=sum2=0;
-                for(let i=0; i<n; i++){
-                    sum1+=arr[i][i];
-                    sum2+=arr[i][n-i-1];
-                }  
-                answer=Math.max(answer, sum1, sum2); 
-                return answer;
+
+                // horizon
+                for (let i =0; i<n; i++ ){
+                    if (hor = sum(arr[i]) > max) max = hor
+                // Diagonal1
+                    dia.push(arr[i][i])
+                }
+                if (sum(dia) > max ) max= dia 
+                // Diagnal2
+                dia = []
+                for (let i =0; i<n; i++ ) {
+                    dia.push(arr[n-i-1][i])
+                } if (sum(dia)  > max ) max = dia
+                
+                // vertical
+                for (let i =0; i<n; i++ ) {
+                    for (let j =0; j<n; j++ ){
+                        ver_Arr.push(arr[j][i])
+                    }
+                    if(ver = sum(ver_Arr) > max) max = ver
+                }
+                return sum(max)
             }
 
             let arr=[[10, 13, 10, 12, 15], 
