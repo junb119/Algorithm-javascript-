@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, arr){
+                let answer = lp = rp = sum = 0
+                let ch =0
+                while (ch < arr.length) {
+
+                    if ( sum > 0 && sum > m) {
+                        console.log('start1')
+                        sum -= arr[lp++]
+                        console.log('>',rp,lp)
+                    } 
+                    else {
+                        console.log('start2')
+
+                        if (arr[rp] <= m && arr[rp] > 0){
+                            console.log('arr[rp]:',arr[rp])
+                            answer ++
+                            console.log('answer :', answer)
+
+                        } else 
+                        answer ++
+                        console.log('answer :', answer)
+                        sum += arr[rp++]
+                        console.log('sum :',sum)
+                        console.log('<',rp,lp)
+
+                    }
+                    ch++
+                }
+                return answer
+
+            }
+            
+            let a=[1, 3, 1, 2, 3];
+            console.log(solution(5, a));
+        </script>
+    </body>
+</html>

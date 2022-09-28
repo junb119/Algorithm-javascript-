@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function compareMaps(sh, th) {
+            if (sh.size !== th.size) 
+                return false  
+            for (x of sh) {
+                if ( sh.get(x[0]) !== th.get(x[0]) ) 
+                    return false
+            }
+            return true
+        }
+
+        function solution(s, t) {
+            let answer = 0
+            let th = new Map()
+            for (x of t) {
+                if(th.has(x)) th.set(x, th.get(x)+1)
+                else th.set(x, 1)
+            }
+            console.log(th)          
+            let n = t.length
+
+            for (let i =0; i< s.length-n+1; i++){
+                let focus = s.slice(i,i+n)
+                let sh = new Map()
+                for (z of focus) {
+                    if (sh.has(z)) sh.set(z, sh.get(z)+1)
+                    else sh.set(z,1)
+                }
+
+                if ( compareMaps(sh,th) ) answer ++ 
+
+            }
+            return answer
+        }
+
+        let a = "bacaAacbaccab";
+        let b = "abc";
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>

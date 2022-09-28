@@ -6,17 +6,15 @@
     <body>
         <script>
             function solution(s){
-                let answer="YES";
-                stack=[];
-                for(let x of s){
-                    if(x==='(') stack.push(x);
-                    else{
-                        if(stack.length===0) return "NO";
-                        stack.pop();
-                    }
+                let answer = 'NO'
+                let a =0
+                let b = 0
+                for (x of s){
+                    if (x === '(') a++
+                    else b++
                 }
-                if(stack.length>0) return "NO";  
-                return answer;
+                if (a===b) answer = 'YES'
+                return answer
             }
             
             let a="(()(()))(()";

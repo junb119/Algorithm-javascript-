@@ -6,17 +6,23 @@
     <body>
         <script>
             function solution(n, k){
-                let answer;
-                let queue=Array.from({length:n}, (v, i)=>i+1); 
-                while(queue.length){
-                    for(let i=1; i<k; i++) queue.push(queue.shift());
-                    queue.shift();
-                    if(queue.length===1) answer=queue.shift();
-                }  
-                return answer;
-            }
+                let stack =[]
+                for (let i =1; i < n+1; i++){
+                    stack.push(i)
+                }
 
-            console.log(solution(8, 3));
+                while (stack.length !== 1) {
+                    cnt = 1
+                    while (cnt !== k){
+                        stack.push(stack.shift())
+                        cnt++}
+                    if (cnt === k)
+                        stack.shift()
+                }
+
+                return stack[0]
+            }
+            console.log(solution(9, 3));
         </script>
     </body>
 </html>

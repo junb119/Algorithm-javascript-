@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(need, plan){
+                let answer = 'YES'
+                let stack =[]
+                need = need.split('')
+                plan = plan.split('')
+                while (plan.length) {
+                    if(need[0] !==plan[0] ) plan.shift()
+                    else {need.shift(); stack.push(plan.shift())}
+                }
+                if (need.length !== 0) return 'NO'
+                return answer;
+            }
+
+            let a="CBA";
+            let b="CDEFQAGE";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
